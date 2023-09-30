@@ -10,8 +10,8 @@
       <input type="password" name="pass" id=""><br>
       <input type="checkbox" name="" id="">Ghi nhớ tài khoản?
       <br><input type="submit" value="Đăng nhập">
-      <li class="form_li"><a href="#">Quên mật khẩu</a></li>
-      <li class="form_li"><a href="#">Đăng kí thành viên</a></li>
+      <li class="form_li"><a href="index.php?act=quenmatkhau">Quên mật khẩu</a></li>
+      <li class="form_li"><a href="index.php?act=dangki">Đăng kí thành viên</a></li>
 
     </div>
   </div>
@@ -22,7 +22,7 @@
         <?php foreach ($danh_muc as $values) :
           extract($values);
         ?>
-          <li><a href="index.php?act=sanpham&id=<?= $id ?>"><?= $name ?></a></li>
+          <li><a href="index.php?act=loadsanphamcungdanhmuc&iddm=<?= $id ?>"><?= $name ?></a></li>
         <?php endforeach ?>
         <!-- <li><a href="">Laptop</a></li>
         <li><a href="">Điện thoại</a></li>
@@ -40,7 +40,7 @@
   <div class="mb">
     <div class="box_title">SẢN PHẨM BÁN CHẠY</div>
     <div class="box_content">
-      <?php foreach ($sanpham_top10 as $values) :
+      <?php foreach ($sanpham_ban_chay as $values) :
         extract($values);
         $hinh = $img_path . $img;
       ?>

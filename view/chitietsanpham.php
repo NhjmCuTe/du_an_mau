@@ -24,9 +24,9 @@
               <td><?= $user ?></td>
               <td><?= $ngaybinhluan ?></td>
 
-              <?php endforeach ?>
+            <?php endforeach ?>
             </tr>
-          <!-- <tr>
+            <!-- <tr>
             <td>Sản phẩm quá đẹp</td>
             <td>Nguyễn Thành A</td>
             <td>20/10/2022</td>
@@ -34,8 +34,8 @@
         </table>
       </div>
       <div class="box_search">
-        <form action="index.php?act=ctsanpham" method="POST">
-          <input type="hidden" name="idpro" value="<?=$id ?>">
+        <form action="index.php?act=ctsanpham&idsp=<?=$sanpham_1['id'] ?>" method="POST">
+          <input type="hidden" name="idpro" value="<?= $sanpham_1['id']  ?>">
           <input type="text" name="noidung">
           <input type="submit" name="guibinhluan" value="Gửi bình luận">
         </form>
