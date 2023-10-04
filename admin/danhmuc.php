@@ -1,4 +1,5 @@
 <div class="row2">
+    
     <div class="row2 font_title">
         <h1>DANH SÁCH LOẠI HÀNG HÓA</h1>
     </div>
@@ -12,13 +13,13 @@
                         <th>TÊN LOẠI</th>
                         <th></th>
                     </tr>
-                    <?php foreach ($all_danhmuc as $values) : ?>
+                    <?php foreach ($all_danhmuc as $values) : extract($values)?>
                         <tr>
                             <td><input type="checkbox" name="" id=""></td>
-                            <td><?= $values['id'] ?></td>
-                            <td><?= $values['name'] ?></td>
-                            <td><a href="index.php"><input type="button" value="Sửa"></a>
-                                <a href=""><input type="button" value="Xóa"></a>
+                            <td><?= $id ?></td>
+                            <td><?= $name ?></td>
+                            <td><a href="index.php?act=them_danh_muc&iddm_edit=<?= $id ?>" onclick="return confirm('bạn có chắc là muốn sửa')"><input type="button" value="Sửa"></a>
+                                <a href="index.php?act=danhmuc&iddm_xoa=<?= $id ?>" onclick="return confirm('bạn có chắc là muốn xóa')"><input type="button" value="Xóa"></a>
                             </td>
                         </tr>
                     <?php endforeach ?>
