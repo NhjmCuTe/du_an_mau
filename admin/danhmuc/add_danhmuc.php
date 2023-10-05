@@ -5,14 +5,14 @@
     </div>
     <div class="row2 form_content ">
         <form action="index.php?act=them_danh_muc" method="POST">
-            <!-- <div class="row2 mb10 form_content_container">
-                <label> Mã loại </label> <br> -->
+            <div class="row2 mb10 form_content_container">
+                <label> Mã loại </label> <br>
                 <?php  if(isset($load_1_danhmuc)){
                     extract($load_1_danhmuc);
                 }
                  ?>
-                <input type="text" name="iddm" placeholder="nhập vào mã loại" value="<?= isset($id)?$id:$id='' ?>">
-            <!-- </div> -->
+                <input type="text" disabled name="iddm" placeholder="Tự động" value="<?= isset($id)?$id:$id='' ?>">
+            </div>
             <div class="row2 mb10">
                 <label>Tên loại </label> <br>
                 <input type="text" name="tendanhmuc" placeholder="nhập vào tên" value="<?= isset($name)?$name: $name='' ?>">

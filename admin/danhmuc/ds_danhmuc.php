@@ -18,7 +18,7 @@
                             <td><input type="checkbox" name="" id=""></td>
                             <td><?= $id ?></td>
                             <td><?= $name ?></td>
-                            <td><a href="index.php?act=them_danh_muc&iddm_edit=<?= $id ?>" onclick="return confirm('bạn có chắc là muốn sửa')"><input type="button" value="Sửa"></a>
+                            <td><a href="index.php?act=them_danhmuc&iddm_edit=<?= $id ?>" onclick="return confirm('bạn có chắc là muốn sửa')"><input type="button" value="Sửa"></a>
                                 <a href="index.php?act=danhmuc&iddm_xoa=<?= $id ?>" onclick="return confirm('bạn có chắc là muốn xóa')"><input type="button" value="Xóa"></a>
                             </td>
                         </tr>
@@ -54,7 +54,7 @@
             <div class="row mb10 ">
                 <input class="mr20" type="button" value="CHỌN TẤT CẢ">
                 <input class="mr20" type="button" value="BỎ CHỌN TẤT CẢ">
-                <a href="index.php"> <input class="mr20" type="button" value="NHẬP THÊM"></a>
+                <a href="index.php?act=them_danhmuc"> <input class="mr20" type="button" value="NHẬP THÊM"></a>
             </div>
         </form>
     </div>

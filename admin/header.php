@@ -23,11 +23,11 @@
             <div class="row mb menu">
                 <ul>
                     <li><a href="">Trang chủ</a></li>
-                    <li><a href="index.php">Danh mục</a></li>
-                    <li><a href="">Hàng hóa</a></li>
-                    <li><a href="">Khách hàng</a></li>
-                    <li><a href="">Bình luận</a></li>
-                    <li><a href="">Thống kê</a></li>
+                    <li><a href="index.php?act=them_danhmuc">Danh mục</a></li>
+                    <li><a href="index.php?act=them_sanpham">Hàng hóa</a></li>
+                    <li><a href="index.php?act=them_taikhoan">Tài khoản</a></li>
+                    <li><a href="index.php?act=binh_luan">Bình luận</a></li>
+                    <li><a href="index.php?act=thong_ke">Thống kê</a></li>
                 </ul>
             </div>
         </header>
