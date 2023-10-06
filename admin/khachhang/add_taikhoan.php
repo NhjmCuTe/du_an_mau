@@ -15,19 +15,19 @@
             </div>
             <div class="row2 mb10">
                 <label>Họ và tên </label> <br>
-                <input type="text" name="tendanhmuc" placeholder="nhập vào tên" value="<?= isset($name)?$name: $name='' ?>">
+                <input type="text" name="tendanhmuc" placeholder="nhập vào tên danh mục" >
                 <label>Số điện thoại </label> <br>
-                <input type="text" name="tendanhmuc" placeholder="nhập vào tên" value="<?= isset($name)?$name: $name='' ?>">
+                <input type="text" name="sdt" placeholder="nhập vào số điện thoại" >
                 <label>Mật khẩu </label> <br>
-                <input type="text" name="tendanhmuc" placeholder="nhập vào tên" value="<?= isset($name)?$name: $name='' ?>">
+                <input type="text" name="pass" placeholder="nhập vào mật khẩu" >
                 <label>Xác nhận mật khẩu </label> <br>
-                <input type="text" name="tendanhmuc" placeholder="nhập vào tên" value="<?= isset($name)?$name: $name='' ?>">
+                <input type="text" name="" placeholder="nhập lại mật khẩu" >
                 <label>Địa chỉ email </label> <br>
-                <input type="text" name="tendanhmuc" placeholder="nhập vào tên" value="<?= isset($name)?$name: $name='' ?>">
+                <input type="text" name="email" placeholder="nhập vào email" >
                 <label>Địa chỉ </label> <br>
-                <input type="text" name="tendanhmuc" placeholder="nhập vào tên" value="<?= isset($name)?$name: $name='' ?>">
+                <input type="text" name="diachi" placeholder="nhập vào địa chỉ" >
                 <label>Hình ảnh </label> <br>
-                <input type="file" name="tendanhmuc" value="<?= isset($name)?$name: $name='' ?>">
+                <input type="file" name="anh">
                 <label>Vai trò</label> <br>
                 <input type="radio" name="vaitro" id="" checked>Khách hàng
                 <input type="radio" name="vaitro" id="">Quản trị

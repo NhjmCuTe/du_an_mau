@@ -2,7 +2,7 @@
 include "model/pdo.php";
 include "global.php";
 
-include "view/header.php";
+
 
 include "model/san_pham.php";
 include "model/danh_muc.php";
@@ -11,6 +11,8 @@ include "model/binh_luan.php";
 $danh_muc = loadall_danhmuc();
 $sanpham_ban_chay = loadall_sanpham_banchay();
 $sanpham = loadall_sanpham_home();
+
+include "view/header.php";
 
 if (isset($_GET['act']) && $_GET['act'] != "") {
     $act = $_GET['act'];
