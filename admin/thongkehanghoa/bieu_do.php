@@ -16,17 +16,19 @@
 
 // Set Data
       const data = google.visualization.arrayToDataTable([
-        ['Contry', 'Mhl'],
-        ['Italy',54.8],
-        ['France',48.6],
-        ['Spain',44.4],
-        ['USA',23.9],
-        ['Argentina',14.5]
+        ['Danh mục', 'số lượng'],
+        // ['Italy',54.8],
+        // ['France',48.6],
+        // ['Spain',44.4],
+        // ['USA',23.9],
+        <?php foreach($thongke_hanghoa_theo_loai as $values): extract($values) ?>
+        ['<?= $name ?>',<?= $so_luong ?>],
+        <?php endforeach ?>
       ]);
 
 // Set Options
       const options = {
-        title:'World Wide Wine Production',
+        title:'Biểu đồ số lượng sản phẩm trong danh mục',
         is3D:true
       };
 

@@ -10,6 +10,7 @@
                     <tr>
                         <!-- <th></th> -->
                         <th>TÊN HÀNG</th>
+                        <th>ẢNH</th>
                         <th>SỐ BÌNH LUẬN</th>
                         <th>MỚI NHẤT</th>
                         <th>CŨ NHẤT</th>
@@ -19,6 +20,7 @@
                         <tr>
                             <!-- <td><input type="checkbox" name="" id=""></td> -->
                             <td><?= $name ?></td>
+                            <td><img src="../<?=$img_path. $img ?>" width="100px" alt=""></td>
                             <td><?= $sl_binhluan ?></td>
                             <td><?= $moi_nhat ?></td>
                             <td><?= $cu_nhat ?></td>
@@ -55,11 +57,11 @@
 
                 </table>
             </div>
-            <!-- <div class="row mb10 ">
-                <input class="mr20" type="button" value="CHỌN TẤT CẢ">
-                <input class="mr20" type="button" value="BỎ CHỌN TẤT CẢ">
-                <a href="index.php?act=them_danhmuc"> <input class="mr20" type="button" value="NHẬP THÊM"></a>
-            </div> -->
+            <div class="row mb10 ">
+                <!-- <input class="mr20" type="button" value="CHỌN TẤT CẢ">
+                <input class="mr20" type="button" value="BỎ CHỌN TẤT CẢ"> -->
+                <a href="index.php?act=bieu_do_binh_luan"> <input class="mr20" type="button" value="XEM BIỂU ĐỒ"></a>
+            </div>
         </form>
     </div>
 </div>

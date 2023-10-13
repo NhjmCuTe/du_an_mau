@@ -10,7 +10,7 @@ function add_binhluan($id_sp, $noidung){
     pdo_execute($sql);
 }
 function thong_ke_binh_luan(){
-    $sql="SELECT sanpham.id, sanpham.name, COUNT(*) sl_binhluan , 
+    $sql="SELECT sanpham.id, sanpham.img, sanpham.name, COUNT(*) sl_binhluan , 
     MIN(binhluan.ngaybinhluan)cu_nhat, 
     MAX(binhluan.ngaybinhluan)moi_nhat 
     FROM binhluan JOIN sanpham on binhluan.idpro=sanpham.id 

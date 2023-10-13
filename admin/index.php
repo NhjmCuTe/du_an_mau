@@ -183,7 +183,12 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             include "thongkehanghoa/thong_ke.php";
             break;
         case 'bieu_do_hang_hoa':
+            $thongke_hanghoa_theo_loai = thong_ke_hanghoa_theo_loai();
             include "thongkehanghoa/bieu_do.php";
+            break;
+        case 'bieu_do_binh_luan':
+            $thong_ke_binh_luan=thong_ke_binh_luan();
+            include "binhluan/bieu_do_binh_luan.php";
             break;
     }
 } else {
