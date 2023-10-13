@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dự án mẫu</title>
     <link rel="stylesheet" href="../css/css.css">
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
 
@@ -22,7 +24,7 @@
             </div>
             <div class="row mb menu">
                 <ul>
-                    <li><a href="">Trang chủ</a></li>
+                    <li><a href="index.php">Trang chủ</a></li>
                     <li><a href="index.php?act=them_danhmuc">Danh mục</a></li>
                     <li><a href="index.php?act=them_sanpham">Hàng hóa</a></li>
                     <li><a href="index.php?act=them_taikhoan">Tài khoản</a></li>

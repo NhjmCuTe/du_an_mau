@@ -11,6 +11,7 @@
                     extract($load_1_taikhoan);
                 } ?>
                 <input type="text" disabled value="<?= isset($id) ? $id : '' ?>">
+                <input type="hidden" name="id" value="<?= isset($id) ? $id : '' ?>">
             </div>
             <div class="row2 mb10">
                 <label>Họ và tên </label> <br>

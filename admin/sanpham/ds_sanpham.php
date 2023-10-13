@@ -1,5 +1,9 @@
 <div class="row2">
-
+    <div class="row mb10 form_content">
+        <input class="mr20" type="button" value="CHỌN TẤT CẢ">
+        <input class="mr20" type="button" value="BỎ CHỌN TẤT CẢ">
+        <a href="index.php?act=them_sanpham"> <input class="mr20" type="button" value="NHẬP THÊM"></a>
+    </div>
     <div class="row2 font_title">
         <h1>DANH SÁCH HÀNG HÓA</h1>
     </div>

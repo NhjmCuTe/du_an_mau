@@ -4,6 +4,7 @@ include "../model/san_pham.php";
 include "../model/danh_muc.php";
 include "../model/tai_khoan.php";
 include "../model/binh_luan.php";
+include "../model/thong_ke.php";
 
 include "../global.php";
 
@@ -25,6 +26,8 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 $danhmuc = $_POST['tendanhmuc'];
                 add_danhmuc($danhmuc);
                 $thong_bao_danh_muc = 'thêm thành công';
+                echo "<script>alert('thêm danh mục thành công')</script>";
+
             }
             include "./danhmuc/add_danhmuc.php";
             break;
@@ -36,12 +39,16 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 $danhmuc = $_POST['tendanhmuc'];
                 edit_danhmuc($_POST['iddm'], $danhmuc);
                 $thong_bao_danh_muc = 'sửa thành công';
+                echo "<script>alert('sửa danh mục thành công')</script>";
+
             }
             include "./danhmuc/edit_danhmuc.php";
             break;
         case 'san_pham':
             if (isset($_GET['idsp_xoa']) && $_GET['idsp_xoa'] > 0) {
                 xoa_sanpham($_GET['idsp_xoa']);
+                echo "<script>alert('xóa sản phẩm thành công')</script>";
+
             }
             $all_sanpham = loadall_sanpham();
             include "sanpham/ds_sanpham.php";
@@ -61,6 +68,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 if (move_uploaded_file($_FILES['img']['tmp_name'], $duong_dan_anh . $tenanh));
 
                 add_sanpham($tensanpham, $gia, $tenanh, $mota, $iddm);
+                echo "<script>alert('thêm sản phẩm thành công')</script>";
 
                 $thong_bao_san_pham = 'thêm thành công';
             }
@@ -90,8 +98,8 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
 
                 edit_sanpham($_POST['idsp'], $tensanpham, $gia, $tenanh, $mota, $iddm);
                 $thong_bao_san_pham = 'sửa thành công';
-                include "sanpham/add_sanpham.php";
-            } else {
+                echo "<script>alert('sửa sản phẩm thành công')</script>";
+
                 include "sanpham/edit_sanpham.php";
             }
 
@@ -99,6 +107,8 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
         case 'tai_khoan':
             if (isset($_GET['idtk_xoa']) && $_GET['idtk_xoa'] > 0) {
                 xoa_taikhoan($_GET['idtk_xoa']);
+                echo "<script>alert('xóa tài khoản thành công')</script>";
+
             }
             $all_taikhoan = load_all_taikhoan();
             include "khachhang/ds_taikhoan.php";
@@ -118,14 +128,18 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
 
                 add_taikhoan($ten, $pass, $email, $tenanh, $diachi, $sdt, $vaitro);
                 $thong_bao_tai_khoan = 'thêm tài khoản thành công';
+                echo "<script>alert('thêm tài khoản thành công')</script>";
+
             }
             include "khachhang/add_taikhoan.php";
             break;
         case 'edit_taikhoan':
             if (isset($_GET['idtk_edit']) && $_GET['idtk_edit']) {
                 $load_1_taikhoan = load_1_taikhoan($_GET['idtk_edit']);
+     
             }
             if (isset($_POST['edittaikhoan']) && $_POST['edittaikhoan']) {
+                $id_tk = $_POST['id'];
                 $ten = $_POST['ten'];
                 $sdt = $_POST['sdt'];
                 $pass = $_POST['pass'];
@@ -133,10 +147,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 $diachi = $_POST['diachi'];
 
                 $vaitro = $_POST['vaitro'];
-                if (empty($vaitro)) {
-                    $thong_bao_vai_tro = "vui lòng điền vai trò";
-                    die;
-                }
+
                 if (empty($_FILES['anh']['name']) && isset($_POST['anh']) && $_POST['anh']) {
                     $tenanh = $_POST['anh'];
                 } else {
@@ -144,11 +155,11 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 }
                 $duong_dan_anh = '../' . $img_path;
                 if (move_uploaded_file($_FILES['anh']['tmp_name'], $duong_dan_anh . $tenanh));
-                $thong_bao_tai_khoan = 'cập nhật tài khoản thành công';
-                include "khachhang/add_taikhoan.php";
-            } else {
-                include "khachhang/edit_taikhoan.php";
+                edit_taikhoan($id_tk, $ten, $pass, $email, $tenanh, $diachi, $sdt, $vaitro);
+                $thong_bao_tai_khoan = 'sửa tài khoản thành công';
+                    echo "<script>alert('sửa tài khoản thành công')</script>";
             }
+            include "khachhang/edit_taikhoan.php";
             break;
 
         case 'thong_ke_binh_luan':
@@ -159,11 +170,20 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
         case 'chi_tiet_binh_luan':
             if (isset($_GET['id_binhluan']) && $_GET['id_binhluan']) {
                 xoa_binh_luan($_GET['id_binhluan']);
+                echo "<script>alert('xóa bình luận thành công')</script>";
+
             }
             if (isset($_GET['id_sp']) && $_GET['id_sp']) {
                 $chi_tiet_binh_luan = chi_tiet_binh_luan($_GET['id_sp']);
                 include "binhluan/chi_tiet_binh_luan.php";
             }
+            break;
+        case 'thong_ke':
+            $thongke_hanghoa_theo_loai = thong_ke_hanghoa_theo_loai();
+            include "thongkehanghoa/thong_ke.php";
+            break;
+        case 'bieu_do_hang_hoa':
+            include "thongkehanghoa/bieu_do.php";
             break;
     }
 } else {

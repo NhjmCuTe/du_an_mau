@@ -46,6 +46,7 @@ function load_1_taikhoan($id)
 }
 function edit_taikhoan($id, $user, $pass, $email='không có', $img, $diachi='không có', $sdt='không có', $role = 0)
 {
-    $sql = "update taikhoan set id=$id, user='$user', pass='$pass', email= '$email', img='$img', address='$diachi', tel='$sdt', role=$role";
+    $sql = "update taikhoan set user='$user', pass='$pass', email= '$email', img='$img', address='$diachi', tel='$sdt', role=$role where id=$id";
+    // echo $sql; die;
     pdo_execute($sql);
 }
