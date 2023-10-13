@@ -18,7 +18,7 @@
                             <td><input type="checkbox" name="" id=""></td>
                             <td><?= $id ?></td>
                             <td><?= $name ?></td>
-                            <td><a href="index.php?act=them_danhmuc&iddm_edit=<?= $id ?>" onclick="return confirm('bạn có chắc là muốn sửa')"><input type="button" value="Sửa"></a>
+                            <td><a href="index.php?act=edit_danhmuc&iddm_edit=<?= $id ?>" onclick="return confirm('bạn có chắc là muốn sửa')"><input type="button" value="Sửa"></a>
                                 <a href="index.php?act=danhmuc&iddm_xoa=<?= $id ?>" onclick="return confirm('bạn có chắc là muốn xóa')"><input type="button" value="Xóa"></a>
                             </td>
                         </tr>

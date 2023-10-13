@@ -7,6 +7,7 @@ include "global.php";
 include "model/san_pham.php";
 include "model/danh_muc.php";
 include "model/binh_luan.php";
+include "model/tai_khoan.php";
 
 $danh_muc = loadall_danhmuc();
 $sanpham_ban_chay = loadall_sanpham_banchay();
@@ -17,9 +18,7 @@ include "view/header.php";
 if (isset($_GET['act']) && $_GET['act'] != "") {
     $act = $_GET['act'];
     switch ($act) {
-        case 'quen_mat_khau':
-            include "view/quen_mat_khau.php";
-            break;
+        
         case 'ctsanpham':
             if (isset($_POST['guibinhluan'])) {
                 add_binhluan($_POST['idpro'], $_POST['noidung']);
@@ -38,11 +37,30 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                 include "view/main.php";
             }
             break;
+        case 'dang_nhap':
+
+            if (isset($_POST['dangnhap']) && $_POST['dangnhap']) {
+                $thong_bao_dang_nhap = dang_nhap($_POST['user'], $_POST['pass']);
+                include "view/main.php";
+            }
+            break;
+        case 'dang_xuat':
+            dang_xuat();
+            include "view/main.php";
+            break;
+
         case 'quenmatkhau':
             include "view/quen_mat_khau.php";
             break;
-        case 'dangki':
-            include "view/dang_ki.php";
+        case 'dangky':
+            if (isset($_POST['dangky']) && $_POST['dangky']) {
+                $user = $_POST['user'];
+                $pass = $_POST['pass'];
+                $email = $_POST['email'];
+                add_taikhoan($user,$pass,$email);
+                $thong_bao_dang_ky = 'đăng ký thành công';
+            }
+            include "view/dang_ky.php";
             break;
     }
 } else {

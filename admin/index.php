@@ -3,6 +3,8 @@ include "../model/pdo.php";
 include "../model/san_pham.php";
 include "../model/danh_muc.php";
 include "../model/tai_khoan.php";
+include "../model/binh_luan.php";
+
 include "../global.php";
 
 
@@ -19,40 +21,153 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             include "./danhmuc/ds_danhmuc.php";
             break;
         case 'them_danhmuc':
-
-            if (isset($_GET['iddm_edit']) && $_GET['iddm_edit']) {
-                $load_1_danhmuc = load_1_danhmuc($_GET['iddm_edit']);
-            }
             if (isset($_POST['themdanhmuc']) && $_POST['themdanhmuc']) {
                 $danhmuc = $_POST['tendanhmuc'];
-                if (isset($_POST['iddm']) && $_POST['iddm'] != '') {
-                    edit_danhmuc($_POST['iddm'], $danhmuc);
-                } else {
-                    add_danhmuc($danhmuc);
-                }
-                echo "<script>alert('thêm thành công')</script>";
+                add_danhmuc($danhmuc);
+                $thong_bao_danh_muc = 'thêm thành công';
             }
             include "./danhmuc/add_danhmuc.php";
-
+            break;
+        case 'edit_danhmuc':
+            if (isset($_GET['iddm_edit']) && $_GET['iddm_edit'] > 0) {
+                $load_1_danhmuc = load_1_danhmuc($_GET['iddm_edit']);
+            }
+            if (isset($_POST['editdanhmuc']) && $_POST['editdanhmuc']) {
+                $danhmuc = $_POST['tendanhmuc'];
+                edit_danhmuc($_POST['iddm'], $danhmuc);
+                $thong_bao_danh_muc = 'sửa thành công';
+            }
+            include "./danhmuc/edit_danhmuc.php";
             break;
         case 'san_pham':
-            $all_sanpham=loadall_sanpham();
+            if (isset($_GET['idsp_xoa']) && $_GET['idsp_xoa'] > 0) {
+                xoa_sanpham($_GET['idsp_xoa']);
+            }
+            $all_sanpham = loadall_sanpham();
             include "sanpham/ds_sanpham.php";
             break;
         case 'them_sanpham':
-            $all_danhmuc=loadall_danhmuc();
+            // echo 1;
+            // die;
+
+            if (isset($_POST['themsanpham']) && $_POST['themsanpham']) {
+                $tensanpham = $_POST['tensanpham'];
+                $gia = $_POST['gia'];
+                $mota = $_POST['mota'];
+                $iddm = $_POST['iddm'];
+                $tenanh = $_FILES['img']['name'];
+                $duong_dan_anh = '../' . $img_path;
+
+                if (move_uploaded_file($_FILES['img']['tmp_name'], $duong_dan_anh . $tenanh));
+
+                add_sanpham($tensanpham, $gia, $tenanh, $mota, $iddm);
+
+                $thong_bao_san_pham = 'thêm thành công';
+            }
+
+            $all_danhmuc = loadall_danhmuc();
             include "sanpham/add_sanpham.php";
             break;
+        case 'edit_sanpham':
+            $all_danhmuc = loadall_danhmuc();
+            if (isset($_GET['idsp_edit']) && $_GET['idsp_edit'] > 0) {
+                $load_1_sanpham = loadone_sanpham($_GET['idsp_edit']);
+            }
+            if (isset($_POST['editsanpham']) && $_POST['editsanpham']) {
+                $tensanpham = $_POST['tensanpham'];
+                $gia = $_POST['gia'];
+                $mota = $_POST['mota'];
+                $iddm = $_POST['iddm'];
+
+                if (empty($_FILES['img']['name']) && isset($_POST['img']) && $_POST['img']) {
+                    $tenanh = $_POST['img'];
+                } else {
+                    $tenanh = $_FILES['img']['name'];
+                }
+
+                $duong_dan_anh = '../' . $img_path;
+                if (move_uploaded_file($_FILES['img']['tmp_name'], $duong_dan_anh . $tenanh));
+
+                edit_sanpham($_POST['idsp'], $tensanpham, $gia, $tenanh, $mota, $iddm);
+                $thong_bao_san_pham = 'sửa thành công';
+                include "sanpham/add_sanpham.php";
+            } else {
+                include "sanpham/edit_sanpham.php";
+            }
+
+            break;
         case 'tai_khoan':
-            $all_taikhoan=load_all_taikhoan();
+            if (isset($_GET['idtk_xoa']) && $_GET['idtk_xoa'] > 0) {
+                xoa_taikhoan($_GET['idtk_xoa']);
+            }
+            $all_taikhoan = load_all_taikhoan();
             include "khachhang/ds_taikhoan.php";
-        break;
+            break;
         case 'them_taikhoan':
+            if (isset($_POST['themtaikhoan']) && $_POST['themtaikhoan']) {
+                $ten = $_POST['ten'];
+                $sdt = $_POST['sdt'];
+                $pass = $_POST['pass'];
+                $email = $_POST['email'];
+                $diachi = $_POST['diachi'];
+                $vaitro = $_POST['vaitro'];
+                $tenanh = $_FILES['anh']['name'];
+                $duong_dan_anh = '../' . $img_path;
+
+                if (move_uploaded_file($_FILES['anh']['tmp_name'], $duong_dan_anh . $tenanh));
+
+                add_taikhoan($ten, $pass, $email, $tenanh, $diachi, $sdt, $vaitro);
+                $thong_bao_tai_khoan = 'thêm tài khoản thành công';
+            }
             include "khachhang/add_taikhoan.php";
-        break;
+            break;
+        case 'edit_taikhoan':
+            if (isset($_GET['idtk_edit']) && $_GET['idtk_edit']) {
+                $load_1_taikhoan = load_1_taikhoan($_GET['idtk_edit']);
+            }
+            if (isset($_POST['edittaikhoan']) && $_POST['edittaikhoan']) {
+                $ten = $_POST['ten'];
+                $sdt = $_POST['sdt'];
+                $pass = $_POST['pass'];
+                $email = $_POST['email'];
+                $diachi = $_POST['diachi'];
+
+                $vaitro = $_POST['vaitro'];
+                if (empty($vaitro)) {
+                    $thong_bao_vai_tro = "vui lòng điền vai trò";
+                    die;
+                }
+                if (empty($_FILES['anh']['name']) && isset($_POST['anh']) && $_POST['anh']) {
+                    $tenanh = $_POST['anh'];
+                } else {
+                    $tenanh = $_FILES['anh']['name'];
+                }
+                $duong_dan_anh = '../' . $img_path;
+                if (move_uploaded_file($_FILES['anh']['tmp_name'], $duong_dan_anh . $tenanh));
+                $thong_bao_tai_khoan = 'cập nhật tài khoản thành công';
+                include "khachhang/add_taikhoan.php";
+            } else {
+                include "khachhang/edit_taikhoan.php";
+            }
+            break;
+
+        case 'thong_ke_binh_luan':
+            $thong_ke_binh_luan = thong_ke_binh_luan();
+            include "binhluan/thong_ke_binh_luan.php";
+            break;
+
+        case 'chi_tiet_binh_luan':
+            if (isset($_GET['id_binhluan']) && $_GET['id_binhluan']) {
+                xoa_binh_luan($_GET['id_binhluan']);
+            }
+            if (isset($_GET['id_sp']) && $_GET['id_sp']) {
+                $chi_tiet_binh_luan = chi_tiet_binh_luan($_GET['id_sp']);
+                include "binhluan/chi_tiet_binh_luan.php";
+            }
+            break;
     }
 } else {
 
-    include "./danhmuc/add_danhmuc.php";
+    echo '<h1>Đây là trang admin</h1>';
 }
 include "footer.php";

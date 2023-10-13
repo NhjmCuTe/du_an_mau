@@ -36,3 +36,16 @@ function loadall_sanpham()
     $kq = pdo_query($sql);
     return $kq;
 }
+
+function add_sanpham($ten, $gia, $anh, $mota, $iddm){
+    $sql="insert into sanpham(name, price, img, mota, iddm) values ('$ten', $gia, '$anh', '$mota', $iddm)";
+    pdo_execute($sql);
+}
+function xoa_sanpham($idsp){
+    $sql="delete from sanpham where id = $idsp";
+    pdo_execute($sql);
+}
+function edit_sanpham($idsp, $ten, $gia, $anh, $mota, $iddm){
+    $sql="update sanpham set name = '$ten', price=$gia, img='$anh', mota='$mota' , iddm=$iddm where id= $idsp ";
+    pdo_execute($sql);
+}

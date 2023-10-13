@@ -1,5 +1,5 @@
 <div class="row2">
-    
+
     <div class="row2 font_title">
         <h1>DANH SÁCH HÀNG HÓA</h1>
     </div>
@@ -15,22 +15,22 @@
                         <th>HÌNH ẢNH</th>
                         <th>MÔ TẢ</th>
                         <th>LƯỢT XEM</th>
-                        
+
                         <th></th>
                     </tr>
-                    <?php foreach ($all_sanpham as $values) : extract($values) ; $anh= $img_path . $img?>
+                    <?php foreach ($all_sanpham as $values) : extract($values) ?>
                         <tr>
-                         
+
                             <td><input type="checkbox" name="" id=""></td>
                             <td><?= $id ?></td>
                             <td><?= $name ?></td>
                             <td><?= $price ?></td>
-                            <td><img src="../<?= $anh ?>" alt="" width="100px"></td>
+                            <td><img src="../<?= $img_path . $img ?>" alt="" width="100px"></td>
                             <td><?= $mota ?></td>
                             <td><?= $luotxem ?></td>
-                            
-                            <td><a href="index.php?act=them_danh_muc&iddm_edit=<?= $id ?>" onclick="return confirm('bạn có chắc là muốn sửa')"><input type="button" value="Sửa"></a>
-                                <a href="index.php?act=danhmuc&iddm_xoa=<?= $id ?>" onclick="return confirm('bạn có chắc là muốn xóa')"><input type="button" value="Xóa"></a>
+
+                            <td><a href="index.php?act=edit_sanpham&idsp_edit=<?= $id ?>" onclick="return confirm('bạn có chắc là muốn sửa')"><input type="button" value="Sửa"></a>
+                                <a href="index.php?act=san_pham&idsp_xoa=<?= $id ?>" onclick="return confirm('bạn có chắc là muốn xóa')"><input type="button" value="Xóa"></a>
                             </td>
                         </tr>
                     <?php endforeach ?>

@@ -2,7 +2,8 @@
 
   <div class="mb">
     <div class="box_title">TÀI KHOẢN</div>
-    <div class="box_content form_account">
+    <?php include "view/dang_nhap.php" ?>
+    <!-- <div class="box_content form_account">
       <form action="#" method="POST"></form>
       <h4>Tên đăng nhập</h4><br>
       <input type="text" name="user" id="">
@@ -13,7 +14,7 @@
       <li class="form_li"><a href="index.php?act=quenmatkhau">Quên mật khẩu</a></li>
       <li class="form_li"><a href="index.php?act=dangki">Đăng kí thành viên</a></li>
 
-    </div>
+    </div> -->
   </div>
   <div class="mb">
     <div class="box_title">DANH MỤC</div>
