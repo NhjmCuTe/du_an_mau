@@ -18,7 +18,20 @@ include "view/header.php";
 if (isset($_GET['act']) && $_GET['act'] != "") {
     $act = $_GET['act'];
     switch ($act) {
-        
+        case 'tim_kiem':
+            // echo 1;die;
+            if (isset($_POST['timkiem']) && $_POST['timkiem']) {
+
+                $sanpham = loadall_sanpham($_POST['tukhoa']);
+                $thong_bao = $_POST['tukhoa'];
+                include "view/main.php";
+            }
+            break;
+        case 'all_sanpham':
+            $sanpham = loadall_sanpham();
+            $thong_bao = 'Tất cả sản phẩm';
+            include "view/main.php";
+            break;
         case 'ctsanpham':
             if (isset($_POST['guibinhluan'])) {
                 add_binhluan($_POST['idpro'], $_POST['noidung']);
@@ -34,6 +47,7 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
         case 'loadsanphamcungdanhmuc':
             if (isset($_GET['iddm']) && $_GET['iddm'] > 0) {
                 $sanpham = loadall_sanpham_cung_danhmuc($_GET['iddm']);
+             
                 include "view/main.php";
             }
             break;
@@ -57,10 +71,33 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                 $user = $_POST['user'];
                 $pass = $_POST['pass'];
                 $email = $_POST['email'];
-                add_taikhoan($user,$pass,$email);
+                add_taikhoan($user, $pass, $email);
                 $thong_bao_dang_ky = 'đăng ký thành công';
             }
             include "view/dang_ky.php";
+            break;
+        case 'capnhattaikhoan':
+            if(isset($_POST['capnhat'])&&$_POST['capnhat']){
+                $id = $_POST['id'];
+                $hoten = $_POST['hoten'];
+                $email = $_POST['email'];
+                $user = $_POST['user'];
+                $pass = $_POST['pass'];
+
+                if(empty($_FILES['img']['name'])&&isset($_POST['img'])&&$_POST['img']){
+                    $tenanh=$_POST['img'];
+                }
+                else{
+                    $tenanh=basename($_FILES['img']['name']);
+                }
+                
+                if(move_uploaded_file($_FILES['img']['tmp_name'], $img_path.$tenanh));
+                edit_taikhoan($id,$user,$pass,$hoten,$email,$tenanh);
+                dang_nhap($user,$pass);
+                $thong_bao_tai_khoan="cập nhật thành công";
+                echo "<script>alert('cập nhật thành công')</script>";
+            }
+            include "view/capnhat_taikhoan.php";
             break;
     }
 } else {

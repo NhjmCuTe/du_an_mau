@@ -27,7 +27,6 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 add_danhmuc($danhmuc);
                 $thong_bao_danh_muc = 'thêm thành công';
                 echo "<script>alert('thêm danh mục thành công')</script>";
-
             }
             include "./danhmuc/add_danhmuc.php";
             break;
@@ -40,7 +39,6 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 edit_danhmuc($_POST['iddm'], $danhmuc);
                 $thong_bao_danh_muc = 'sửa thành công';
                 echo "<script>alert('sửa danh mục thành công')</script>";
-
             }
             include "./danhmuc/edit_danhmuc.php";
             break;
@@ -48,9 +46,17 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             if (isset($_GET['idsp_xoa']) && $_GET['idsp_xoa'] > 0) {
                 xoa_sanpham($_GET['idsp_xoa']);
                 echo "<script>alert('xóa sản phẩm thành công')</script>";
-
             }
-            $all_sanpham = loadall_sanpham();
+            if (isset($_POST['tukhoa']) && isset($_POST['iddm'])) {
+                // echo 1;
+                $all_sanpham = loadall_sanpham($_POST['tukhoa'], $_POST['iddm']);
+            
+            } else {
+                // echo 4;
+                $all_sanpham = loadall_sanpham();
+            }
+            $all_danhmuc = loadall_danhmuc();
+
             include "sanpham/ds_sanpham.php";
             break;
         case 'them_sanpham':
@@ -90,7 +96,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 if (empty($_FILES['img']['name']) && isset($_POST['img']) && $_POST['img']) {
                     $tenanh = $_POST['img'];
                 } else {
-                    $tenanh = $_FILES['img']['name'];
+                    $tenanh = basename($_FILES['img']['name']);
                 }
 
                 $duong_dan_anh = '../' . $img_path;
@@ -99,16 +105,13 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 edit_sanpham($_POST['idsp'], $tensanpham, $gia, $tenanh, $mota, $iddm);
                 $thong_bao_san_pham = 'sửa thành công';
                 echo "<script>alert('sửa sản phẩm thành công')</script>";
-
-                include "sanpham/edit_sanpham.php";
             }
-
+            include "sanpham/edit_sanpham.php";
             break;
         case 'tai_khoan':
             if (isset($_GET['idtk_xoa']) && $_GET['idtk_xoa'] > 0) {
                 xoa_taikhoan($_GET['idtk_xoa']);
                 echo "<script>alert('xóa tài khoản thành công')</script>";
-
             }
             $all_taikhoan = load_all_taikhoan();
             include "khachhang/ds_taikhoan.php";
@@ -129,14 +132,12 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 add_taikhoan($ten, $pass, $email, $tenanh, $diachi, $sdt, $vaitro);
                 $thong_bao_tai_khoan = 'thêm tài khoản thành công';
                 echo "<script>alert('thêm tài khoản thành công')</script>";
-
             }
             include "khachhang/add_taikhoan.php";
             break;
         case 'edit_taikhoan':
             if (isset($_GET['idtk_edit']) && $_GET['idtk_edit']) {
                 $load_1_taikhoan = load_1_taikhoan($_GET['idtk_edit']);
-     
             }
             if (isset($_POST['edittaikhoan']) && $_POST['edittaikhoan']) {
                 $id_tk = $_POST['id'];
@@ -157,7 +158,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 if (move_uploaded_file($_FILES['anh']['tmp_name'], $duong_dan_anh . $tenanh));
                 edit_taikhoan($id_tk, $ten, $pass, $email, $tenanh, $diachi, $sdt, $vaitro);
                 $thong_bao_tai_khoan = 'sửa tài khoản thành công';
-                    echo "<script>alert('sửa tài khoản thành công')</script>";
+                echo "<script>alert('sửa tài khoản thành công')</script>";
             }
             include "khachhang/edit_taikhoan.php";
             break;
@@ -171,7 +172,6 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             if (isset($_GET['id_binhluan']) && $_GET['id_binhluan']) {
                 xoa_binh_luan($_GET['id_binhluan']);
                 echo "<script>alert('xóa bình luận thành công')</script>";
-
             }
             if (isset($_GET['id_sp']) && $_GET['id_sp']) {
                 $chi_tiet_binh_luan = chi_tiet_binh_luan($_GET['id_sp']);
@@ -187,7 +187,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             include "thongkehanghoa/bieu_do.php";
             break;
         case 'bieu_do_binh_luan':
-            $thong_ke_binh_luan=thong_ke_binh_luan();
+            $thong_ke_binh_luan = thong_ke_binh_luan();
             include "binhluan/bieu_do_binh_luan.php";
             break;
     }

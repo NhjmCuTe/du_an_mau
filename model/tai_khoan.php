@@ -13,9 +13,15 @@ function dang_nhap($user, $pass)
 
     if ($kq != false) {
 
-        $_SESSION['user']['name'] = $user;
+        $_SESSION['user']['name'] = $kq['user'];
+        $_SESSION['user']['hoten'] = $kq['name'];
         $_SESSION['user']['role'] = $kq['role'];
-
+        $_SESSION['user']['img'] = $kq['img'];
+        $_SESSION['user']['id'] = $kq['id'];
+        $_SESSION['user']['email'] = $kq['email'];
+        $_SESSION['user']['pass'] = $kq['pass'];
+        // setcookie('username', $user, time() + 3600);
+        // setcookie('role', $kq['role'], time() + 3600);
         return "đăng nhập thành công";
     } else {
         return "sai tài khoản hoặc mật khẩu";
@@ -25,9 +31,11 @@ function dang_xuat()
 {
     if (isset($_SESSION['user'])) {
         unset($_SESSION['user']);
+        // setcookie('username', '1', time() - 3600);
+        // setcookie('role', '1', time() - 3600);
     }
 }
-function add_taikhoan($user, $pass, $email='', $img='', $add='', $sdt='', $role = 0)
+function add_taikhoan($user, $pass, $email = '', $img = '', $add = '', $sdt = '', $role = 0)
 {
     $sql = "insert into taikhoan (user, pass, email, img, address, tel, role) values ('$user','$pass','$email', '$img', '$add', '$sdt', $role)";
     //echo $sql;die;
@@ -44,9 +52,9 @@ function load_1_taikhoan($id)
     $kq = pdo_query_one($sql);
     return $kq;
 }
-function edit_taikhoan($id, $user, $pass, $email='không có', $img, $diachi='không có', $sdt='không có', $role = 0)
+function edit_taikhoan($id, $user, $pass, $hoten = '', $email = '', $img, $diachi = '', $sdt = '', $role = 0)
 {
-    $sql = "update taikhoan set user='$user', pass='$pass', email= '$email', img='$img', address='$diachi', tel='$sdt', role=$role where id=$id";
+    $sql = "update taikhoan set user='$user', pass='$pass',name='$hoten', email= '$email', img='$img', address='$diachi', tel='$sdt', role=$role where id=$id";
     // echo $sql; die;
     pdo_execute($sql);
 }

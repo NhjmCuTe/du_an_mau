@@ -1,6 +1,7 @@
-<?php 
-// var_dump($_SESSION);
-if (!isset($_SESSION['user'])) : ?>
+<?php
+// var_dump($_COOKIE);
+
+if (!isset($_SESSION['user']['name'])) : ?>
     <div class="box_content form_account">
         <form action="index.php?act=dang_nhap" method="POST">
             <h4>Tên đăng nhập </h4><br>
@@ -16,11 +17,20 @@ if (!isset($_SESSION['user'])) : ?>
 
     </div>
 <?php else : ?>
-    <h4>Xin chào <?= isset($_SESSION['user'])?$_SESSION['user']['name']:'' ?></h4>
-    <a href="index.php?act=dang_xuat">Đăng xuất</a><br>
-    <a href="index.php?act=doi_mat_khau">Đổi mật khẩu</a><br>
-    <a href="index.php?act=cap_nhat_tai_khoan&id=">Cập nhật tài khoản</a><br>
-    <?php if(isset($_SESSION['user'])&&$_SESSION['user']['role']!=0){
-        echo '<a href="admin">Quản trị</a>';
+    <div class="dang_nhap">
+    <img src="<?= isset($_SESSION['user']['img']) ?  $img_path.$_SESSION['user']['img'] : '' ?>" width="150px" alt="">
+    <h4><?= isset($_SESSION['user']['name']) ? $_SESSION['user']['name'] : '' ?></h4>
+    </div>
+    <ul>
+       
+  
+    <li><a href="index.php?act=dang_xuat">Đăng xuất</a><br></li>
+    <li> <a href="index.php?act=doi_mat_khau">Đổi mật khẩu</a><br></li>
+    <li><a href="index.php?act=capnhattaikhoan">Cập nhật tài khoản</a><br></li>
+   
+    
+    <?php if (isset($_SESSION['user']['name']) && $_SESSION['user']['role'] != 0) {
+        echo '<li><a href="admin">Quản trị</a></li>';
     } ?>
+      </ul>
 <?php endif ?>

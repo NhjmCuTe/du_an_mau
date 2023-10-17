@@ -7,7 +7,7 @@
       ?>
       <div class="box_title"><?= $name ?></div>
       <div class="box_content">
-        <img src="<?= $hinh ?>" width="400px">
+        <img src="<?= $hinh ?>" width="400px" id="img">
         <p><?= $mota ?></p>
       </div>
     </div>

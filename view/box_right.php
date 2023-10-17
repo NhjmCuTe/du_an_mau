@@ -1,6 +1,6 @@
 <div class="boxright">
 
-  <div class="mb">
+  <div class="mb tai_khoan">
     <div class="box_title">TÀI KHOẢN</div>
     <?php include "view/dang_nhap.php" ?>
     <!-- <div class="box_content form_account">
@@ -32,8 +32,9 @@
       </ul>
     </div>
     <div class="box_search">
-      <form action="#" method="POST">
-        <input type="text" name="" id="" placeholder="Từ khóa tìm kiếm">
+      <form action="index.php?act=tim_kiem" method="post">
+        <input type="text" name="tukhoa" id="" placeholder="Từ khóa tìm kiếm">
+        <input type="submit" value="Tìm kiếm" name="timkiem">
       </form>
     </div>
   </div>

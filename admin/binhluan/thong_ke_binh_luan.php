@@ -8,7 +8,7 @@
             <div class="row2 mb10 formds_loai">
                 <table>
                     <tr>
-                        <!-- <th></th> -->
+                        <th>MÃ SẢN PHẨM</th>
                         <th>TÊN HÀNG</th>
                         <th>ẢNH</th>
                         <th>SỐ BÌNH LUẬN</th>
@@ -19,6 +19,7 @@
                     <?php foreach ($thong_ke_binh_luan as $values) : extract($values)?>
                         <tr>
                             <!-- <td><input type="checkbox" name="" id=""></td> -->
+                            <td><?=$id ?></td>
                             <td><?= $name ?></td>
                             <td><img src="../<?=$img_path. $img ?>" width="100px" alt=""></td>
                             <td><?= $sl_binhluan ?></td>
