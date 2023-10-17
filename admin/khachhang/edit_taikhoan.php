@@ -15,13 +15,15 @@
             </div>
             <div class="row2 mb10">
                 <label>Họ và tên </label> <br>
+                <input type="text" name="name" placeholder="nhập vào tên" value="<?= isset($name) ? $name : '' ?>">
+                <label>User </label> <br>
                 <input type="text" name="ten" placeholder="nhập vào tên" value="<?= isset($user) ? $user : '' ?>">
-                <label>Số điện thoại </label> <br>
-                <input type="text" name="sdt" placeholder="nhập vào số điện thoại" value="<?= isset($tel) ? $tel : '' ?>">
                 <label>Mật khẩu </label> <br>
                 <input type="text" name="pass" placeholder="nhập vào mật khẩu" value="<?= isset($pass) ? $pass : '' ?>">
                 <label>Xác nhận mật khẩu </label> <br>
                 <input type="text" name="" placeholder="nhập lại mật khẩu" value="<?= isset($pass) ? $pass : '' ?>">
+                <label>Số điện thoại </label> <br>
+                <input type="text" name="sdt" placeholder="nhập vào số điện thoại" value="<?= isset($tel) ? $tel : '' ?>">
                 <label>Địa chỉ email </label> <br>
                 <input type="text" name="email" placeholder="nhập vào email" value="<?= isset($email) ? $email : '' ?>">
                 <label>Địa chỉ </label> <br>

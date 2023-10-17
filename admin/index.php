@@ -142,6 +142,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             if (isset($_POST['edittaikhoan']) && $_POST['edittaikhoan']) {
                 $id_tk = $_POST['id'];
                 $ten = $_POST['ten'];
+                $name = $_POST['name'];
                 $sdt = $_POST['sdt'];
                 $pass = $_POST['pass'];
                 $email = $_POST['email'];
@@ -156,7 +157,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 }
                 $duong_dan_anh = '../' . $img_path;
                 if (move_uploaded_file($_FILES['anh']['tmp_name'], $duong_dan_anh . $tenanh));
-                edit_taikhoan($id_tk, $ten, $pass, $email, $tenanh, $diachi, $sdt, $vaitro);
+                edit_taikhoan($id_tk,$ten,$pass,$name,$email,$tenanh,$diachi,$sdt,$vaitro);
                 $thong_bao_tai_khoan = 'sửa tài khoản thành công';
                 echo "<script>alert('sửa tài khoản thành công')</script>";
             }

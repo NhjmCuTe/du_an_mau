@@ -15,6 +15,7 @@
                         <th></th>
                         <th>MÃ KHÁCH HÀNG</th>
                         <th>TÊN TÀI KHOẢN</th>
+                        <th>User</th>
                         <th>MẬT KHẨU</th>
                         <th>EMAIL</th>
                         <th>HÌNH ẢNH</th>
@@ -27,6 +28,7 @@
                         <tr>
                             <td><input type="checkbox" name="" id=""></td>
                             <td><?= $id ?></td>
+                            <td><?= $name ?></td>
                             <td><?= $user ?></td>
                             <td><?= $pass ?></td>
                             <td><?= $email ?></td>
