@@ -47,14 +47,14 @@
                      <a href="">Điện thoại</a>
                      <a href="">Laptop</a>
                   </div> -->
-               <li class="dropdown">
+               <!-- <li class="dropdown">
                   <a class="dropdownbtn" href="#">Bình luận</a>
                   <div class="dropdown_content">
-                     <!-- <a href="#">Đồng hồ</a>
+                     <a href="#">Đồng hồ</a>
                      <a href="#">Điện thoại</a>
-                     <a href="#">Laptop</a> -->
+                     <a href="#">Laptop</a>
                   </div>
-               </li>
+               </li> -->
 
             </ul>
          </div>

@@ -24,9 +24,13 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
         case 'them_danhmuc':
             if (isset($_POST['themdanhmuc']) && $_POST['themdanhmuc']) {
                 $danhmuc = $_POST['tendanhmuc'];
-                add_danhmuc($danhmuc);
-                $thong_bao_danh_muc = 'thêm thành công';
-                echo "<script>alert('thêm danh mục thành công')</script>";
+                $kq = add_danhmuc($danhmuc);
+                if ($kq) {
+                    $thong_bao_danh_muc = 'thêm thành công';
+                    echo "<script>alert('thêm danh mục thành công')</script>";
+                } else {
+                    $thong_bao_danh_muc_that_bai = 'tên danh mục đã tồn tại';
+                }
             }
             include "./danhmuc/add_danhmuc.php";
             break;
@@ -50,7 +54,6 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             if (isset($_POST['tukhoa']) && isset($_POST['iddm'])) {
                 // echo 1;
                 $all_sanpham = loadall_sanpham($_POST['tukhoa'], $_POST['iddm']);
-            
             } else {
                 // echo 4;
                 $all_sanpham = loadall_sanpham();
@@ -119,6 +122,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
         case 'them_taikhoan':
             if (isset($_POST['themtaikhoan']) && $_POST['themtaikhoan']) {
                 $ten = $_POST['ten'];
+                $user = $_POST['user'];
                 $sdt = $_POST['sdt'];
                 $pass = $_POST['pass'];
                 $email = $_POST['email'];
@@ -129,9 +133,14 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
 
                 if (move_uploaded_file($_FILES['anh']['tmp_name'], $duong_dan_anh . $tenanh));
 
-                add_taikhoan($ten, $pass, $email, $tenanh, $diachi, $sdt, $vaitro);
-                $thong_bao_tai_khoan = 'thêm tài khoản thành công';
-                echo "<script>alert('thêm tài khoản thành công')</script>";
+                $kq= add_taikhoan($user, $pass, $email, $tenanh, $diachi, $sdt, $vaitro,$ten);
+                if($kq){
+                    $thong_bao_tai_khoan = 'thêm tài khoản thành công';
+                    echo "<script>alert('thêm tài khoản thành công')</script>";
+                }else{
+                    $thong_bao_tai_khoan_that_bai = 'tên tài khoản đã tồn tại';
+
+                }
             }
             include "khachhang/add_taikhoan.php";
             break;
@@ -157,7 +166,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 }
                 $duong_dan_anh = '../' . $img_path;
                 if (move_uploaded_file($_FILES['anh']['tmp_name'], $duong_dan_anh . $tenanh));
-                edit_taikhoan($id_tk,$ten,$pass,$name,$email,$tenanh,$diachi,$sdt,$vaitro);
+                edit_taikhoan($id_tk, $ten, $pass, $name, $email, $tenanh, $diachi, $sdt, $vaitro);
                 $thong_bao_tai_khoan = 'sửa tài khoản thành công';
                 echo "<script>alert('sửa tài khoản thành công')</script>";
             }

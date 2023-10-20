@@ -34,7 +34,15 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
             break;
         case 'ctsanpham':
             if (isset($_POST['guibinhluan'])) {
-                add_binhluan($_POST['idpro'], $_POST['noidung']);
+                if (isset($_SESSION['user'])) {
+                    $id_user = $_SESSION['user']['id'];
+                    $id_sp = $_GET['idsp'];
+                    $binh_luan = $_POST['noidung'];
+                    add_binhluan($id_user, $id_sp, $binh_luan);
+                } else {
+                    $thong_bao_binh_luan = "vui lòng đăng nhập để bình luận";
+                    // echo 1; die;
+                }
             }
             if (isset($_GET['idsp']) && $_GET['idsp'] > 0) {
                 $sanpham_1 = loadone_sanpham($_GET['idsp']);
@@ -44,10 +52,11 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                 include "view/chitietsanpham.php";
             }
             break;
+
         case 'loadsanphamcungdanhmuc':
             if (isset($_GET['iddm']) && $_GET['iddm'] > 0) {
                 $sanpham = loadall_sanpham_cung_danhmuc($_GET['iddm']);
-             
+
                 include "view/main.php";
             }
             break;
@@ -71,33 +80,54 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                 $user = $_POST['user'];
                 $pass = $_POST['pass'];
                 $email = $_POST['email'];
-                add_taikhoan($user, $pass, $email);
-                $thong_bao_dang_ky = 'đăng ký thành công';
+                $kq = add_taikhoan($user, $pass, $email);
+                // var_dump($kq);die;
+                if (!$kq) {
+                    $thong_bao_dang_ky_that_bai = 'tài khoản đã tồn tại';
+                } else {
+
+                    $thong_bao_dang_ky = 'đăng ký thành công';
+                }
             }
             include "view/dang_ky.php";
             break;
         case 'capnhattaikhoan':
-            if(isset($_POST['capnhat'])&&$_POST['capnhat']){
+            if (isset($_POST['capnhat']) && $_POST['capnhat']) {
                 $id = $_POST['id'];
                 $hoten = $_POST['hoten'];
                 $email = $_POST['email'];
                 $user = $_POST['user'];
                 $pass = $_POST['pass'];
 
-                if(empty($_FILES['img']['name'])&&isset($_POST['img'])&&$_POST['img']){
-                    $tenanh=$_POST['img'];
+                if (empty($_FILES['img']['name']) && isset($_POST['img']) && $_POST['img']) {
+                    $tenanh = $_POST['img'];
+                } else {
+                    $tenanh = basename($_FILES['img']['name']);
                 }
-                else{
-                    $tenanh=basename($_FILES['img']['name']);
-                }
-                
-                if(move_uploaded_file($_FILES['img']['tmp_name'], $img_path.$tenanh));
-                edit_taikhoan($id,$user,$pass,$hoten,$email,$tenanh);
-                dang_nhap($user,$pass);
-                $thong_bao_tai_khoan="cập nhật thành công";
+
+                if (move_uploaded_file($_FILES['img']['tmp_name'], $img_path . $tenanh));
+                edit_taikhoan($id, $user, $pass, $hoten, $email, $tenanh);
+                dang_nhap($user, $pass);
+                $thong_bao_tai_khoan = "cập nhật thành công";
                 echo "<script>alert('cập nhật thành công')</script>";
             }
             include "view/capnhat_taikhoan.php";
+            break;
+        case 'doi_mat_khau':
+            if (isset($_POST['doimatkhau']) && $_POST['doimatkhau']) {
+                if ($_POST['pass1'] == $_POST['pass2']) {
+                    $id = $_SESSION['user']['id'];
+                    $user = $_SESSION['user']['name'];
+                    $pass = $_POST['pass2'];
+                    edit_taikhoan($id, $user, $pass);
+                    echo "<script>alert('đổi mật khẩu thành công')</script>";
+                    $thong_bao_doi_mat_khau = "đổi mật khẩu thành công";
+                } else {
+                    $matkhau = "mật khẩu không giống nhau";
+                    include "view/doimatkhau.php";
+                }
+            }
+            include "view/doimatkhau.php";
             break;
     }
 } else {

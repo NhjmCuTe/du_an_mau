@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 13, 2023 lúc 06:32 AM
+-- Thời gian đã tạo: Th10 20, 2023 lúc 01:21 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -42,9 +42,14 @@ CREATE TABLE `binhluan` (
 INSERT INTO `binhluan` (`id`, `noidung`, `iduser`, `idpro`, `ngaybinhluan`) VALUES
 (2, 'Sản phẩm rất tốt', 3, 1, '2023-09-22'),
 (6, 'bình luân', 2, 9, '2023-10-06'),
-(13, '123', 2, 41, '2023-10-13'),
-(14, '123', 2, 41, '2023-10-13'),
-(15, '2222', 2, 41, '2023-10-13');
+(44, 'sản phẩm đẹp', 28, 41, '2023-10-20'),
+(46, 'máy đẹp quá', 28, 51, '2023-10-20'),
+(47, 'ib shop ơi', 28, 51, '2023-10-20'),
+(48, 'đẹp quá ', 28, 52, '2023-10-20'),
+(49, 'giá bao nhiêu thế', 28, 52, '2023-10-20'),
+(50, 'tuyệt vời', 28, 53, '2023-10-20'),
+(51, 'ib shop ơi', 28, 53, '2023-10-20'),
+(52, 'đẹp quá ', 28, 41, '2023-10-20');
 
 -- --------------------------------------------------------
 
@@ -63,7 +68,10 @@ CREATE TABLE `danhmuc` (
 
 INSERT INTO `danhmuc` (`id`, `name`) VALUES
 (1, 'Laptop'),
-(2, 'Điện Thoại');
+(2, 'Điện Thoại'),
+(64, 'Máy ảnh'),
+(65, 'Sạc dự phòng'),
+(66, 'Đồng hồ');
 
 -- --------------------------------------------------------
 
@@ -95,8 +103,13 @@ INSERT INTO `sanpham` (`id`, `name`, `price`, `img`, `mota`, `luotxem`, `iddm`) 
 (8, 'Laptop Lenovo Ideapad 5 Pro', 300000.00, 'Laptop Lenovo Ideapad 5 Pro.jpg', 'Lenovo Ideapad 5 Pro 16 là chiếc laptop, máy tính xách tay thời đại mới dành cho các bạn trẻ đa nhiệm, năng động với vẻ ngoài hiện đại, mỏng nhẹ nhưng bên trong lại chứa một hiệu năng cực khủng. Bên cạnh đó, chiếc laptop Lenovo - Lenovo Ideapad này cũng được tích hợp nhiều công nghệ hiện đại, tối ưu tốt cho trải nghiệm sử dụng. Chắc chắn, mẫu laptop mỏng nhẹ này sẽ khiến bạn phải bất ngờ đấy. Hãy cùng Laptop88 đánh giá ngay mẫu laptop văn phòng này dưới đây nhé!', 10, 1),
 (9, 'Xiaomi Redmi Note 12 Pro', 140000.00, 'Xiaomi Redmi Note 12 Pro.jpg', 'Samsung S23 Ultra là dòng điện thoại cao cấp của Samsung, sở hữu camera độ phân giải 200MP ấn tượng, chip Snapdragon 8 Gen 2 mạnh mẽ, bộ nhớ RAM 8GB mang lại hiệu suất xử lý vượt trội cùng khung viền vuông vức sang trọng. Sản phẩm được ra mắt từ đầu năm 2023.', 9, 2),
 (10, 'Macbook Air 15 inch M2 2023 sửa', 180000.00, 'Macbook Air 15 inch M2 2023.jpg', 'Vận hành doanh nghiệp trên MacBook Air M2. Siêu mạnh mẽ với chip M2 thế hệ tiếp theo, MacBook Air được thiết kế mới nay nhỏ gọn hơn bao giờ hết, kết hợp giữa hiệu năng đáng kinh ngạc và thời lượng pin lên đến 18 giờ trong vỏ nhôm mỏng đầy ấn tượng.1 Nhờ đó, tất cả các bộ phận từ kinh doanh đến tài chính đều có thể làm việc năng suất hơn dù ở bất cứ đâu.', 9, 1),
-(40, 'Macbook Air 15 inch M2 2023 sửa', 180000.00, 'Macbook Air 15 inch M2 2023.jpg', 'Vận hành doanh nghiệp trên MacBook Air M2. Siêu mạnh mẽ với chip M2 thế hệ tiếp theo, MacBook Air được thiết kế mới nay nhỏ gọn hơn bao giờ hết, kết hợp giữa hiệu năng đáng kinh ngạc và thời lượng pin lên đến 18 giờ trong vỏ nhôm mỏng đầy ấn tượng.1 Nhờ đó, tất cả các bộ phận từ kinh doanh đến tài chính đều có thể làm việc năng suất hơn dù ở bất cứ đâu.', 0, 1),
-(41, 'Macbook Air 15 inch M2 2023 222', 99.00, 'Macbook Air 15 inch M2 2023.jpg', 'Vận hành doanh nghiệp trên MacBook Air M2. Siêu mạnh mẽ với chip M2 thế hệ tiếp theo, MacBook Air được thiết kế mới nay nhỏ gọn hơn bao giờ hết, kết hợp giữa hiệu năng đáng kinh ngạc và thời lượng pin lên đến 18 giờ trong vỏ nhôm mỏng đầy ấn tượng.1 Nhờ đó, tất cả các bộ phận từ kinh doanh đến tài chính đều có thể làm việc năng suất hơn dù ở bất cứ đâu.', 0, 1);
+(41, 'Macbook Air 15 inch M2 2023123', 1000.00, 'Macbook Air 15 inch M2 2023.jpg', 'Vận hành doanh nghiệp trên MacBook Air M2. Siêu mạnh mẽ với chip M2 thế hệ tiếp theo, MacBook Air được thiết kế mới nay nhỏ gọn hơn bao giờ hết, kết hợp giữa hiệu năng đáng kinh ngạc và thời lượng pin lên đến 18 giờ trong vỏ nhôm mỏng đầy ấn tượng.1 Nhờ đó, tất cả các bộ phận từ kinh doanh đến tài chính đều có thể làm việc năng suất hơn dù ở bất cứ đâu.', 0, 1),
+(51, 'Máy ảnh Fujifilm X-S20 (Body Only) | Chính Hãng', 31990000.00, 'fujifilm-x-s20-500x500.png', 'Máy ảnh mirrorless Fujifilm X-S20 sở hữu thiết kế gọn nhẹ, trang bị cảm biến 26.1MP X-Trans CMOS 4 kết hợp bộ xử lý hình ảnh X-Processor 5, chống rung IBIS 7 stop, lấy nét tự động bằng AI vượt trội, mang lại những thước phim chất lượng 6.2K30fps ấn tượng, một chiếc camera đa năng phù hợp cho cả những nhiếp ảnh gia và những nhà sáng tạo nội dung.', 0, 64),
+(52, 'Máy ảnh Leica M11 (Silver)', 99999999.99, 'leica-m11-bac-500x500.png', 'Leica M11 là một máy ảnh rangefinder có thiết kế quen thuộc của dòng máy ảnh Leica M. Máy ảnh không thay đổi quá nhiều về thiết kế bên ngoài nhưng được nâng cấp đáng kể về hiệu suất bên trong, mang đến trải nghiệm độc đáo cho người dùng, phù hợp với những người có phong cách.', 0, 64),
+(53, 'Pin sạc dự phòng Anker PowerCore Select 10000mAh A1223', 200000.00, '4h57_2.png', 'Pin sạc dự phòng Anker từ lâu đã là một thương hiệu mang lại uy tín nhất định trên thị trường phụ kiện trong nước nói riêng và thế giới nói chung. Sở hữu dung lượng lưu trữ lên đến 10000 mAh cùng nhiều tính năng hiện đại thì sản phẩm pin dự phòng Anker PowerCore Select 10000 mAh A1223 sẽ là một lựa chọn không thể phù hợp hơn dành cho bạn.', 0, 65),
+(54, 'Pin dự phòng sạc nhanh Baseus Qpow Pro 20.000mAh 20W cho iPhone, Lightning (kèm cáp)', 300000.00, 'baseus-qpow-pro-2.png', 'Sạc tối đa lên tới 3 thiết bị cùng lúc qua 3 cổng: Type-C, Lightning, USB Tích hợp thêm dây sạc chuẩn Type-C 19 cm tháo lắp tiện lợi Tích hợp chip xử lý nguồn thế hệ mới có hiệu suất sử dụng cao, bảo vệ thông minh Hỗ trợ sạc nhanh QC3.0 và PD3.0 trên cổng sạc USB và Type-C', 0, 65),
+(55, 'Apple Watch SE 2022 40mm | Chính Hãng VN/A', 2000000.00, '1_258.png', 'Thiết kế trẻ trung, năng động - Viền nhôm sang trọng, màn hình Oled hiển thị tốt kể cả trong điều kiện trời nắng Thao tác mượt mà - Tích hợp chip S8 SiP cùng hệ điều hành WatchOS 9 mới nhất Phát hiện va chạm - Tự động phát cảnh báo và gửi vị trí cho người thân khi phát hiện tai nạn Sức khoẻ được theo dõi liên tục - Cảm biến nhịp tim thế hệ 2, tính năng theo dõi thuốc Thoả sức bơi lội - khả năng chống nước đến 50m Pin lên đến 18 giờ cho 1 lần sạc, cùng chế độ tiết kiệm pin cho phép sử dụng lâu hơn', 0, 66),
+(56, 'Vòng đeo tay thông minh Xiaomi Mi Band 8 Active', 1000000.00, 'band-8-active-pink.png', 'Màn hình lớn hơn đến 1.47 inch cho phép hiển thị nhiều thông tin hơn Đeo mọi nơi không ngại mưa rơi với kháng nước chuẩn 5ATM Giữ sức khoẻ luôn ổn định với cảm biến nhịp tim PPG Tập luyện tốt hơn với 50 chế độ thể thao Sử dụng đến 14 ngày, sạc đầy trong 2 giờ', 0, 66);
 
 -- --------------------------------------------------------
 
@@ -108,6 +121,7 @@ CREATE TABLE `taikhoan` (
   `id` int(11) NOT NULL,
   `user` varchar(50) NOT NULL,
   `pass` varchar(50) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `img` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
@@ -119,11 +133,11 @@ CREATE TABLE `taikhoan` (
 -- Đang đổ dữ liệu cho bảng `taikhoan`
 --
 
-INSERT INTO `taikhoan` (`id`, `user`, `pass`, `email`, `img`, `address`, `tel`, `role`) VALUES
-(2, 'Hoàng Long', '123456', 'longhh7@fpt.edu.vn', '', '', '', 1),
-(3, 'Thành Trung', '1234565', 'trungnt173@fpt.edu.vn', '', 'Hà Nội', '', 1),
-(28, '123', '123', '', '', '', '123', 1),
-(32, 'ad', 'ad', '', '', '', '', 0);
+INSERT INTO `taikhoan` (`id`, `user`, `pass`, `name`, `email`, `img`, `address`, `tel`, `role`) VALUES
+(2, 'Hoàng Long', '123456', '', 'longhh7@fpt.edu.vn', '', '', '', 1),
+(3, 'Thành Trung', '1234565', '', 'trungnt173@fpt.edu.vn', '', 'Hà Nội', '', 1),
+(28, 'ad', 'ad', 'lê văn tuấn', 'email@fpt.vn', 'fujifilm-x-s20-500x500.png', '', '', 0),
+(53, 'ad1', 'ad1', 'tuấn', 'email@fpt.vn', 'inet.png', 'hà nội', '0912312321', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -164,25 +178,25 @@ ALTER TABLE `taikhoan`
 -- AUTO_INCREMENT cho bảng `binhluan`
 --
 ALTER TABLE `binhluan`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT cho bảng `danhmuc`
 --
 ALTER TABLE `danhmuc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT cho bảng `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

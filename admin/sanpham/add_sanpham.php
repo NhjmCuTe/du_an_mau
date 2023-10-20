@@ -13,16 +13,16 @@
             <div class="row2 mb10">
 
                 <label>Tên sản phẩm </label> <br>
-                <input type="text" name="tensanpham" placeholder="nhập vào tên">
+                <input type="text" name="tensanpham" placeholder="nhập vào tên" required>
                 <label>Giá</label> <br>
-                <input type="text" name="gia" >
+                <input type="text" name="gia" required>
                 <label>Ảnh </label> <br>
-                <input type="file" name="img">
+                <input type="file" name="img" required>
                 <label>Mô tả </label> <br>
-                <input type="text" name="mota" placeholder="nhập vào tên">
+                <input type="text" name="mota" placeholder="nhập vào tên" required>
                 <label>Danh mục </label> <br>
                 <select name="iddm" id="">
-                    <option value="">Chọn dạnh mục</option>
+       
                     <?php foreach ($all_danhmuc as $values) : ?>
                         <option value="<?= $values['id'] ?>" <?= isset($iddm) && $values['id'] == $iddm ? 'selected' : '' ?>><?= $values['name'] ?></option>
                     <?php endforeach ?>

@@ -1,12 +1,13 @@
 <?php
 function load_binh_luan($id_sp){
-    $sql="SELECT * FROM binhluan JOIN taikhoan ON binhluan.iduser=taikhoan.id WHERE idpro=$id_sp";
+    $sql="SELECT * FROM binhluan JOIN taikhoan ON binhluan.iduser=taikhoan.id WHERE idpro=$id_sp ORDER BY binhluan.id desc";
     $kq=pdo_query($sql);
     return $kq;
 }
-function add_binhluan($id_sp, $noidung){
+function add_binhluan($id_user,$id_sp, $noidung){
 
-    $sql = "insert into binhluan(iduser,idpro,noidung) values (2,$id_sp, '$noidung')";
+    $sql = "insert into binhluan(iduser,idpro,noidung) values ($id_user,$id_sp, '$noidung')";
+    // echo $sql; die;
     pdo_execute($sql);
 }
 function thong_ke_binh_luan(){

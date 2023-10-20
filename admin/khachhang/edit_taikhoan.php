@@ -15,21 +15,21 @@
             </div>
             <div class="row2 mb10">
                 <label>Họ và tên </label> <br>
-                <input type="text" name="name" placeholder="nhập vào tên" value="<?= isset($name) ? $name : '' ?>">
-                <label>User </label> <br>
-                <input type="text" name="ten" placeholder="nhập vào tên" value="<?= isset($user) ? $user : '' ?>">
+                <input type="text" name="name" required placeholder="nhập vào tên" value="<?= isset($name) ? $name : '' ?>">
+                <label>Tên đăng nhập </label> <br>
+                <input type="text" name="ten" required placeholder="nhập vào tên" value="<?= isset($user) ? $user : '' ?>">
                 <label>Mật khẩu </label> <br>
-                <input type="text" name="pass" placeholder="nhập vào mật khẩu" value="<?= isset($pass) ? $pass : '' ?>">
+                <input type="text" name="pass" required placeholder="nhập vào mật khẩu" value="<?= isset($pass) ? $pass : '' ?>">
                 <label>Xác nhận mật khẩu </label> <br>
-                <input type="text" name="" placeholder="nhập lại mật khẩu" value="<?= isset($pass) ? $pass : '' ?>">
+                <input type="text" name="" required placeholder="nhập lại mật khẩu" value="<?= isset($pass) ? $pass : '' ?>">
                 <label>Số điện thoại </label> <br>
-                <input type="text" name="sdt" placeholder="nhập vào số điện thoại" value="<?= isset($tel) ? $tel : '' ?>">
+                <input type="text" name="sdt" required placeholder="nhập vào số điện thoại" value="<?= isset($tel) ? $tel : '' ?>">
                 <label>Địa chỉ email </label> <br>
-                <input type="text" name="email" placeholder="nhập vào email" value="<?= isset($email) ? $email : '' ?>">
+                <input type="text" name="email" required placeholder="nhập vào email" value="<?= isset($email) ? $email : '' ?>">
                 <label>Địa chỉ </label> <br>
-                <input type="text" name="diachi" placeholder="nhập vào địa chỉ" value="<?= isset($address) ? $address : '' ?>">
+                <input type="text" name="diachi" required placeholder="nhập vào địa chỉ" value="<?= isset($address) ? $address : '' ?>">
                 <label>Hình ảnh </label> <br>
-                <input type="file" name="anh">
+                <input type="file" name="anh" >
                 <input type="hidden" name="anh" value="<?= isset($img) ? $img : '' ?>">
                 <img src=" ../<?= $img_path ?><?= isset($img) ? $img : '' ?>" width="100px" alt="">
                 <label>Vai trò</label> <br>

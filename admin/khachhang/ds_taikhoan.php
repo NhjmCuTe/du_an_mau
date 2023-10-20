@@ -14,8 +14,8 @@
                     <tr>
                         <th></th>
                         <th>MÃ KHÁCH HÀNG</th>
-                        <th>TÊN TÀI KHOẢN</th>
-                        <th>User</th>
+                        <th>HỌ VÀ TÊN</th>
+                        <th>TÊN ĐĂNG NHẬP</th>
                         <th>MẬT KHẨU</th>
                         <th>EMAIL</th>
                         <th>HÌNH ẢNH</th>

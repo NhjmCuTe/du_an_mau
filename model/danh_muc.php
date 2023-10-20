@@ -8,8 +8,16 @@ function loadall_danhmuc()
 
 function add_danhmuc($name)
 {
-    $sql = "insert into danhmuc (name) values ('$name')";
-    pdo_execute($sql);
+    $kiemtra = "select * from danhmuc where name = '$name'";
+    $kq = pdo_query_one($kiemtra);
+    //    var_dump($kq);die;
+    if ($kq) {
+        return false;
+    } else {
+        $sql = "insert into danhmuc (name) values ('$name')";
+        pdo_execute($sql);
+        return true;
+    }
 }
 function xoa_danhmuc($id)
 {

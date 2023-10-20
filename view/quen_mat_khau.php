@@ -6,7 +6,7 @@
             <form action="index.php?act=quenmk" method="post">
                 <div>
                     <p>Email</p>
-                    <input type="email" name="email" placeholder="email">
+                    <input type="email" name="email" placeholder="email" required>
                 </div>
 
                 <input type="submit" value="Gửi" name="guiemail">
