@@ -46,9 +46,7 @@ function loadall_sanpham($tukhoa = '', $iddm = '')
     }
 
     $sql = $sql . " order by id desc";
-// echo $sql; die;
 
-    // echo $sql;die;
     $kq = pdo_query($sql);
     return $kq;
 }

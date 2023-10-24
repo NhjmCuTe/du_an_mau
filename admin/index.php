@@ -133,13 +133,12 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
 
                 if (move_uploaded_file($_FILES['anh']['tmp_name'], $duong_dan_anh . $tenanh));
 
-                $kq= add_taikhoan($user, $pass, $email, $tenanh, $diachi, $sdt, $vaitro,$ten);
-                if($kq){
+                $kq = add_taikhoan($user, $pass, $email, $tenanh, $diachi, $sdt, $vaitro, $ten);
+                if ($kq) {
                     $thong_bao_tai_khoan = 'thêm tài khoản thành công';
                     echo "<script>alert('thêm tài khoản thành công')</script>";
-                }else{
+                } else {
                     $thong_bao_tai_khoan_that_bai = 'tên tài khoản đã tồn tại';
-
                 }
             }
             include "khachhang/add_taikhoan.php";
@@ -187,6 +186,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 $chi_tiet_binh_luan = chi_tiet_binh_luan($_GET['id_sp']);
                 include "binhluan/chi_tiet_binh_luan.php";
             }
+
             break;
         case 'thong_ke':
             $thongke_hanghoa_theo_loai = thong_ke_hanghoa_theo_loai();
@@ -204,5 +204,6 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
 } else {
 
     echo '<h1>Đây là trang admin</h1>';
+    echo '<a href="../index.php"><button>Quay lại trang người dùng</button></a>';
 }
 include "footer.php";

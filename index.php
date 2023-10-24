@@ -73,6 +73,14 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
             break;
 
         case 'quenmatkhau':
+            if (isset($_POST['guimatkhau']) && $_POST['guimatkhau']) {
+                $kq = quen_mat_khau($_POST['email']);
+                if ($kq) {
+                    $thong_bao_quen_mat_khau = "mật khẩu đã được gửi vào email";
+                } else {
+                    $thong_bao_quen_mat_khau_sai = "email không tồn tại";
+                }
+            }
             include "view/quen_mat_khau.php";
             break;
         case 'dangky':

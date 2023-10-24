@@ -1,5 +1,7 @@
 <div class="row2">
-
+    <div class="form_content">
+        <a href="index.php?act=san_pham"><input class="mr20" type="button" value="DANH SÁCH"></a>
+    </div>
     <div class="row2 font_title">
         <h1>SỬA HÀNG HÓA</h1>
     </div>
@@ -28,7 +30,7 @@
                 <input type="text" name="mota" placeholder="nhập vào tên" value="<?= isset($mota) ? $mota : $mota = '' ?>">
                 <label>Danh mục </label> <br>
                 <select name="iddm" id="">
-                    <option value="">Chọn dạnh mục</option>
+
                     <?php foreach ($all_danhmuc as $values) : ?>
                         <option value="<?= $values['id'] ?>" <?= isset($iddm) && $values['id'] == $iddm ? 'selected' : '' ?>><?= $values['name'] ?></option>
                     <?php endforeach ?>
@@ -40,7 +42,8 @@
                 <input class="mr20" type="reset" value="NHẬP LẠI">
 
                 <a href="index.php?act=san_pham"><input class="mr20" type="button" value="DANH SÁCH"></a>
-                <?= isset($thong_bao_san_pham) ? $thong_bao_san_pham : '' ?>
+                <h4 style="color: green;"><?= isset($thong_bao_san_pham) ? $thong_bao_san_pham : '' ?></h4>
+
             </div>
         </form>
     </div>

@@ -1,3 +1,6 @@
+<div class="form_content">
+    <a href="index.php?act=san_pham"><input class="mr20" type="button" value="DANH SÁCH"></a>
+</div>
 <div class="row2">
 
     <div class="row2 font_title">
@@ -7,7 +10,7 @@
         <form action="index.php?act=them_sanpham" method="POST" enctype="multipart/form-data">
             <div class="row2 mb10 form_content_container">
                 <label> Mã sản phẩm </label> <br>
-                
+
                 <input type="text" placeholder="Tự động" disabled>
             </div>
             <div class="row2 mb10">
@@ -22,7 +25,7 @@
                 <input type="text" name="mota" placeholder="nhập vào tên" required>
                 <label>Danh mục </label> <br>
                 <select name="iddm" id="">
-       
+
                     <?php foreach ($all_danhmuc as $values) : ?>
                         <option value="<?= $values['id'] ?>" <?= isset($iddm) && $values['id'] == $iddm ? 'selected' : '' ?>><?= $values['name'] ?></option>
                     <?php endforeach ?>
@@ -34,7 +37,8 @@
                 <input class="mr20" type="reset" value="NHẬP LẠI">
 
                 <a href="index.php?act=san_pham"><input class="mr20" type="button" value="DANH SÁCH"></a>
-                <?= isset($thong_bao_san_pham) ? $thong_bao_san_pham : '' ?>
+                <h4 style="color: green;"><?= isset($thong_bao_san_pham) ? $thong_bao_san_pham : '' ?></h4>
+
 
             </div>
         </form>

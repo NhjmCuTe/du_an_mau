@@ -1,5 +1,7 @@
 <div class="row2">
-
+    <div class="form_content">
+        <a href="index.php?act=tai_khoan"><input class="mr20" type="button" value="DANH SÁCH"></a>
+    </div>
     <div class="row2 font_title">
         <h1>SỬA TÀI KHOẢN</h1>
     </div>
@@ -29,20 +31,21 @@
                 <label>Địa chỉ </label> <br>
                 <input type="text" name="diachi" required placeholder="nhập vào địa chỉ" value="<?= isset($address) ? $address : '' ?>">
                 <label>Hình ảnh </label> <br>
-                <input type="file" name="anh" >
+                <input type="file" name="anh">
                 <input type="hidden" name="anh" value="<?= isset($img) ? $img : '' ?>">
                 <img src=" ../<?= $img_path ?><?= isset($img) ? $img : '' ?>" width="100px" alt="">
                 <label>Vai trò</label> <br>
                 <input type="radio" name="vaitro" id="" <?= isset($role) && $role == 0 ? 'checked' : '' ?> value="0">Khách hàng
                 <input type="radio" name="vaitro" id="" <?= isset($role) && $role == 1 ? 'checked' : '' ?> value="1">Quản trị
-                <?= isset($thong_bao_vai_tro)?$thong_bao_vai_tro:''?>
+                <?= isset($thong_bao_vai_tro) ? $thong_bao_vai_tro : '' ?>
             </div>
             <div class="row mb10 ">
                 <input class="mr20" type="submit" name="edittaikhoan" value="SỬA">
                 <input class="mr20" type="reset" value="NHẬP LẠI">
 
                 <a href="index.php?act=tai_khoan"><input class="mr20" type="button" value="DANH SÁCH"></a>
-                <?= isset($thong_bao_tai_khoan) ? $thong_bao_tai_khoan : '' ?>
+                <h4 style="color: green;"><?= isset($thong_bao_tai_khoan) ? $thong_bao_tai_khoan : '' ?></h4>
+
             </div>
         </form>
     </div>

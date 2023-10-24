@@ -1,2 +1,2 @@
 <?php
-$img_path="img/";
+$img_path = "img/";

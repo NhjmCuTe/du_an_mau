@@ -1,5 +1,9 @@
 <div class="row2">
-    
+    <div class="row mb10 form_content">
+        <!-- <input class="mr20" type="button" value="CHỌN TẤT CẢ">
+                <input class="mr20" type="button" value="BỎ CHỌN TẤT CẢ"> -->
+        <a href="index.php?act=bieu_do_binh_luan"> <input class="mr20" type="button" value="XEM BIỂU ĐỒ"></a>
+    </div>
     <div class="row2 font_title">
         <h1>THÔNG KÊ BÌNH LUẬN</h1>
     </div>
@@ -16,45 +20,21 @@
                         <th>CŨ NHẤT</th>
                         <th></th>
                     </tr>
-                    <?php foreach ($thong_ke_binh_luan as $values) : extract($values)?>
+                    <?php foreach ($thong_ke_binh_luan as $values) : extract($values) ?>
                         <tr>
                             <!-- <td><input type="checkbox" name="" id=""></td> -->
-                            <td><?=$id ?></td>
+                            <td><?= $id ?></td>
                             <td><?= $name ?></td>
-                            <td><img src="../<?=$img_path. $img ?>" width="100px" alt=""></td>
+                            <td><img src="../<?= $img_path . $img ?>" width="100px" alt=""></td>
                             <td><?= $sl_binhluan ?></td>
                             <td><?= $moi_nhat ?></td>
                             <td><?= $cu_nhat ?></td>
-                            <td><a href="index.php?act=chi_tiet_binh_luan&id_sp=<?= $id ?>" ><input type="button" value="Chi tiết"></a>
+                            <td><a href="index.php?act=chi_tiet_binh_luan&id_sp=<?= $id ?>"><input type="button" value="Chi tiết"></a>
                                 <!-- <a href="index.php?act=danhmuc&iddm_xoa=<?= $id ?>" onclick="return confirm('bạn có chắc là muốn xóa')"><input type="button" value="Xóa"></a> -->
                             </td>
                         </tr>
                     <?php endforeach ?>
-                    <!-- <tr>
-                        <td><input type="checkbox" name="" id=""></td>
-                        <td>001</td>
-                        <td>Đồng hồ</td>
-                        <td><input type="button" value="Sửa"> <input type="button" value="Xóa"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="" id=""></td>
-                        <td>001</td>
-                        <td>Đồng hồ</td>
-                        <td><input type="button" value="Sửa"> <input type="button" value="Xóa"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="" id=""></td>
-                        <td>001</td>
-                        <td>Đồng hồ</td>
-                        <td><input type="button" value="Sửa"> <input type="button" value="Xóa"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="" id=""></td>
-                        <td>001</td>
-                        <td>Đồng hồ</td>
-                        <td><input type="button" value="Sửa"> <input type="button" value="Xóa"></td>
-                    </tr> -->
-
+      
 
                 </table>
             </div>

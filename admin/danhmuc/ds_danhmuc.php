@@ -27,30 +27,7 @@
                             </td>
                         </tr>
                     <?php endforeach ?>
-                    <!-- <tr>
-                        <td><input type="checkbox" name="" id=""></td>
-                        <td>001</td>
-                        <td>Đồng hồ</td>
-                        <td><input type="button" value="Sửa"> <input type="button" value="Xóa"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="" id=""></td>
-                        <td>001</td>
-                        <td>Đồng hồ</td>
-                        <td><input type="button" value="Sửa"> <input type="button" value="Xóa"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="" id=""></td>
-                        <td>001</td>
-                        <td>Đồng hồ</td>
-                        <td><input type="button" value="Sửa"> <input type="button" value="Xóa"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="" id=""></td>
-                        <td>001</td>
-                        <td>Đồng hồ</td>
-                        <td><input type="button" value="Sửa"> <input type="button" value="Xóa"></td>
-                    </tr> -->
+           
 
 
                 </table>

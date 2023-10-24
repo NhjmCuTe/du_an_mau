@@ -49,8 +49,7 @@
                 if (pass1 != '' && pass2 != '' && pass1 != pass2) {
                     err3.innerText = 'mật khẩu không giống nhau';
                     err = true;
-                }
-                else{
+                } else {
                     err3.innerText = '';
 
                 }

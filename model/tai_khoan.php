@@ -35,7 +35,7 @@ function dang_xuat()
         // setcookie('role', '1', time() - 3600);
     }
 }
-function add_taikhoan($user, $pass, $email = '', $img = '', $add = '', $sdt = '', $role = 0, $name='')
+function add_taikhoan($user, $pass, $email = '', $img = '', $add = '', $sdt = '', $role = 0, $name = '')
 {
     $kiemtra = "select * from taikhoan where user = '$user'";
     $kq = pdo_query_one($kiemtra);
@@ -61,11 +61,30 @@ function load_1_taikhoan($id)
 }
 function edit_taikhoan($id, $user, $pass, $hoten = '', $email = '', $img = '', $diachi = '', $sdt = '', $role = 0)
 {
-    $sql = "update taikhoan set user='$user', pass='$pass',name='$hoten', email= '$email',  address='$diachi', tel='$sdt' ";
+    $sql = "update taikhoan set user='$user', pass='$pass',name='$hoten'";
     if ($img != '') {
         $sql .= ",img='$img'";
+    }
+    if ($email != '') {
+        $sql .= ",email= '$email'";
+    }
+    if ($diachi != '') {
+        $sql .= ",address='$diachi'";
+    }
+    if ($sdt != '') {
+        $sql .= ",tel='$sdt'";
     }
     $sql .= ",role=$role where id=$id";
     // echo $sql; die;
     pdo_execute($sql);
+}
+function quen_mat_khau($email)
+{
+    $sql = "select * from taikhoan where email='$email'";
+    $kq = pdo_query_one($sql);
+    if ($kq) {
+        return true;
+    } else {
+        return false;
+    }
 }

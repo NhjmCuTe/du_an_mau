@@ -63,4 +63,3 @@ function pdo_query_one($sql){
     }
 }
 pdo_get_connection();
-?>

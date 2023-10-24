@@ -1,5 +1,7 @@
 <div class="row2">
-
+    <div class="form_content">
+        <a href="index.php?act=danhmuc"><input class="mr20" type="button" value="DANH SÁCH"></a>
+    </div>
     <div class="row2 font_title">
         <h1>SỬA LOẠI HÀNG HÓA</h1>
     </div>
@@ -23,7 +25,9 @@
                 <input class="mr20" type="reset" value="NHẬP LẠI">
 
                 <a href="index.php?act=danhmuc"><input class="mr20" type="button" value="DANH SÁCH"></a>
-                <?= isset($thong_bao_danh_muc) ? $thong_bao_danh_muc : '' ?>
+                <h4 style="color: green;"> <?= isset($thong_bao_danh_muc) ? $thong_bao_danh_muc : '' ?></h4>
+
+
             </div>
         </form>
     </div>
